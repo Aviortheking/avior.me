@@ -1,24 +1,60 @@
 ---
-import Layout from '../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
-import Breadcrumb from 'components/global/Breadcrumb.astro'
 import { Image } from 'astro:assets'
+import Layout from 'layouts/Layout.astro'
 
 const projects = await getCollection('projects')
+const clients = await Promise.all((await getCollection('clients')).map(async (it) => ({...it, obj: await it.render()})))
 ---
 
 <Layout title="Avior.me - Developpement de solutions selon vos besoins">
-	<div class="container">
-		<Breadcrumb items={[{ text: 'Accueil', href: '/' }, { text: 'Projets' }]} />
-		<main class="grid grid-cols-3 gap-4">
+	<main class="container">
+
+		<div class="flex justify-center items-center h-64">
+			<h1 class="text-4xl font-bold">Développement de solutions selon vos besoins</h1>
+		</div>
+		<h2 class="text-center md:text-left text-2xl font-semibold mb-4">Projets</h2>
+		<div class="md:grid grid-cols-3 gap-4">
 			{projects.map((it) => (
-				<a href={`/projets/${it.slug}`} class="flex flex-col gap-4">
+				<a href={`/projets/${it.slug}`} class="flex flex-col gap-4 mb-6 md:mb-0">
 					{it.data.image && (
 						<Image src={it.data.image} alt="" />
 					)}
 					<p>{it.data.title}</p>
 				</a>
 			))}
-		</main>
-	</div>
+		</div>
+		<h2 class="text-center md:text-left text-2xl font-semibold my-8">Clients</h2>
+		<div class="flex flex-col gap-4">
+			<div class="grid grid-cols-2 items-center">
+				<div></div>
+				<div class="prose dark:prose-invert max-w-none">
+					<p class="font-semibold">Tâches :</p>
+				</div>
+			</div>
+			{clients.map((client, index) => {
+				const { Content } = client.obj
+				client.data.logo
+				return (
+					<>
+						{index > 0 && (
+							<div class="hidden md:block w-10/12 mx-auto h-0.5 bg-gray-300 dark:bg-gray-700"></div>
+						)}
+						<div class="mt-6 md:mt-0 md:grid grid-cols-2 items-center">
+							<a href={client.data.site} target="_blank" rel="noreferrer nofollow" class="flex flex-col gap-4">
+								{client.data.logo && (
+									<Image class:list={{'mx-auto': true, 'md:mx-0': true, 'dark:invert': client.data.logo.invert}} src={client.data.logo.src} height={48} alt="" />
+								) || (
+									<div>{client.data.title}</div>
+								)}
+							</a>
+							<div class="prose dark:prose-invert max-w-none">
+								<Content />
+							</div>
+						</div>
+					</>
+				)
+			})}
+		</div>
+	</main>
 </Layout>

@@ -1,6 +1,6 @@
 ---
 title: Studiomoto, Site de référencement d’événement Moto en France
-disabled: Site Inactif
+description: Découvrez Studiomoto, la plateforme dédiée à l'univers de la moto en France. Référencement complet des événements moto, design élégant par l'agence Spideer, contribution ouverte aux organisateurs.
 link:
   href: https://www.studiomoto.fr
 image: ./og.png
@@ -8,11 +8,12 @@ created: 2018-09-10
 updated: 2021-04-29
 ---
 
-# Studiomoto : L'Incontournable Référencement des Événements Moto en France
-
-![Studiomoto](./accueil.png)
+![Logo de Studiomoto](./logo.svg)
 
 **Studiomoto** est bien plus qu'un simple site web. C'est une véritable plateforme dédiée à l'univers passionnant de la moto en France. Développé par Florian BOUILLON et méticuleusement designé par l'agence Spideer, Studiomoto se positionne en tant qu'acteur majeur dans le domaine de l'événementiel motard.
+
+![Studiomoto](./accueil.png)
+*Image 1 : Accueil de Studiomoto.fr*
 
 ## Une Vitrine des Événements Moto
 
@@ -43,5 +44,3 @@ Les organisateurs peuvent ajouter des détails complets sur leurs événements, 
 En résumé, Studiomoto est bien plus qu'un simple site de référencement d'événements moto en France. C'est une plateforme dynamique qui rapproche la communauté motarde et met en lumière la richesse de l'univers de la moto dans l'hexagone.
 
 Si vous êtes passionné de deux-roues, que vous soyez un motard chevronné ou un amateur curieux, Studiomoto est l'endroit où vous trouverez les informations essentielles sur les événements moto en France.
-
-Pour ne rien manquer des prochaines manifestations motardes, rendez-vous sur [Studiomoto](https://www.studiomoto.fr) dès aujourd'hui !

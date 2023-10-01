@@ -1,8 +1,7 @@
 ---
 import Layout, { type Props as BaseProps } from './Layout.astro'
-import Header from 'components/global/Header.astro'
-import Footer from 'components/global/Footer.astro'
 import ButtonLink from 'components/global/ButtonLink.astro'
+import Button from 'components/global/Button.astro'
 import Breadcrumb from 'components/global/Breadcrumb.astro'
 
 export interface Props extends BaseProps {
@@ -12,6 +11,7 @@ export interface Props extends BaseProps {
 		text?: string
 		target?: string
 	}
+	disabled?: string
 	breadcrumb: Array<{
 		text: string
 		href?: string

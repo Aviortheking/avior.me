@@ -1,5 +1,6 @@
 ---
-title: "TCGdex : Explorez l'univers Pokémon JCC, une carte à la fois."
+title: "TCGdex, Explorez l'univers Pokémon JCC, une carte à la fois."
+description: TCGdex, l'API du Pokémon JCC (Jeux de Cartes à Collectionner), est une ressource inestimable pour les amateurs du célèbre jeu de cartes Pokémon. Explorez ses possibilités, et embarquez pour un voyage inoubliable dans l'univers Pokémon.
 link:
   href: https://tcgdex.fr
 image: ./og.png

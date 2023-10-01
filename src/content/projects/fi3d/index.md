@@ -1,5 +1,6 @@
 ---
-title: "FI3D : Le Portail Ultime pour les Filaments 3D"
+title: "FI3D, Le Portail Ultime pour les Filaments 3D"
+description: FI3D, l'agrégateur de filaments 3D en FDM. Découvrez une large gamme de filaments pour imprimantes 3D, comparez caractéristiques et prix, explorez des produits locaux, et simplifiez vos achats.
 link:
   href: https://fi3d.fr
   rel: _blank
