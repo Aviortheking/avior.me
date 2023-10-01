@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
+import Layout from 'layouts/Layout.astro'
+import Breadcrumb from 'components/global/Breadcrumb.astro'
+const entries = await getCollection('projects')
+---
+
+<Layout title='pouet'>
+	<div class="container">
+		<Breadcrumb items={[{ text: 'Accueil', href: '/' }, { text: 'Projets' }]} />
+		<main class="grid grid-cols-3 gap-4">
+			{entries.map((it) => (
+				<a href={`/projets/${it.slug}`} class="flex flex-col gap-4">
+					{it.data.image && (
+						<Image src={it.data.image} alt="" />
+					)}
+					<p>{it.data.title}</p>
+				</a>
+			))}
+		</main>
+	</div>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import { Home } from 'lucide-astro'
+interface Props {
+	items: Array<{
+		text: string
+		href?: string
+	}>
+}
+---
+
+<nav>
+	<ol vocab="https://schema.org/" typeof="BreadcrumbList">
+		{Astro.props.items.map((el, index) => (
+			<li property="itemListElement" typeof="ListItem">
+				{index > 0 && (
+					<span class="text-slate-900 dark:text-slate-100 mx-4">/</span>
+				)}
+				{el.href ? (
+					<a class="text-slate-900 dark:text-slate-100" href={el.href} property="item" typeof="WebPage">
+						<span property="name">{el.text}</span>
+					</a>
+				) : (
+					<span class="font-bold" property="name">{el.text}</span>
+				)}
+				<meta property="position" content={index.toString()} />
+			</li>
+		))}
+	</ol>
+</nav>
+
+<style>
+	ol {
+		@apply inline-flex items-center flex-wrap px-0 mb-4
+	}
+	li {
+		@apply inline-block px-0
+	}
+	a {
+		@apply font-normal
+	}
+</style>

@@ -1,11 +1,15 @@
 ---
+import Footer from 'components/global/Footer.astro'
 import Base, { type Props as BaseProps } from './Base.astro'
+import Header from 'components/global/Header.astro'
 
 export interface Props extends BaseProps {}
 ---
 
 <Base {...Astro.props}>
-	<main class="container">
+	<Header />
+	<div class="pt-24">
 		<slot />
-	</main>
+	</div>
+	<Footer />
 </Base>

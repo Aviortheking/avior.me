@@ -36,9 +36,9 @@ export default defineConfig({
 	},
 
 	// Customizable depending on goal
-	output: 'server',
-	adapter: node({
-		mode: "standalone"
-	}),
-	site: 'https://example.com',
+	output: 'static',
+	// adapter: node({
+	// 	mode: "standalone"
+	// }),
+	site: 'https://avior.me',
  })

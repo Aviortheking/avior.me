@@ -1,0 +1,47 @@
+---
+import Layout, { type Props as BaseProps } from './Layout.astro'
+import Header from 'components/global/Header.astro'
+import Footer from 'components/global/Footer.astro'
+import ButtonLink from 'components/global/ButtonLink.astro'
+import Breadcrumb from 'components/global/Breadcrumb.astro'
+
+export interface Props extends BaseProps {
+	link?: {
+		href: string
+		rel?: string
+		text?: string
+		target?: string
+	}
+	breadcrumb: Array<{
+		text: string
+		href?: string
+	}>
+}
+---
+
+<Layout {...Astro.props}>
+	<div class="container">
+		<Breadcrumb items={Astro.props.breadcrumb} />
+		<article class="prose prose-img:object-contain prose-img:max-h-96 prose-img:rounded-lg prose-img:mx-auto lg:prose-lg 2xl:prose-2xl xl:prose-xl dark:prose-invert mx-auto max-w-none prose-p:text-justify">
+			<slot />
+		</article>
+		{Astro.props.link && (
+			<div class="flex justify-center mt-6">
+				<ButtonLink
+					target="_blank"
+					href={Astro.props.link.href}
+					rel={Astro.props.link.rel ?? 'nofollow noopener'}
+				>
+					{Astro.props.link.text ?? 'Visiter le site'}
+				</ButtonLink>
+			</div>
+		)}
+		{Astro.props.disabled && (
+			<div class="flex justify-center mt-6">
+				<Button>
+					{Astro.props.disabled}
+				</Button>
+			</div>
+		)}
+	</div>
+</Layout>

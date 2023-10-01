@@ -1,0 +1,27 @@
+---
+import { objectOmit } from '@dzeio/object-util'
+
+interface Props extends Omit<astroHTML.JSX.ButtonHTMLAttributes, 'type'> {
+	type?: 'outline' | 'ghost'
+}
+---
+
+<button class:list={[
+	"button",
+	Astro.props.type,
+	Astro.props.class ?? null, Astro.props['class:list']
+]} {...objectOmit(Astro.props, 'type') as any}>
+	<slot />
+</button>
+
+<style>
+	.button {
+		@apply outline-none inline-flex px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-medium transition-colors
+	}
+	.button.outline {
+		@apply bg-transparent border-2 text-blue-500 border-gray-200 hover:bg-gray-100 active:bg-gray-200 active:border-gray-300
+	}
+	.button.ghost {
+		@apply text-black bg-transparent hover:bg-gray-200 active:bg-gray-300
+	}
+</style>

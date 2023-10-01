@@ -1,13 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+import Breadcrumb from 'components/global/Breadcrumb.astro'
+import { Image } from 'astro:assets'
+
+const projects = await getCollection('projects')
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-	</main>
+<Layout title="Avior.me - Developpement de solutions selon vos besoins">
+	<div class="container">
+		<Breadcrumb items={[{ text: 'Accueil', href: '/' }, { text: 'Projets' }]} />
+		<main class="grid grid-cols-3 gap-4">
+			{projects.map((it) => (
+				<a href={`/projets/${it.slug}`} class="flex flex-col gap-4">
+					{it.data.image && (
+						<Image src={it.data.image} alt="" />
+					)}
+					<p>{it.data.title}</p>
+				</a>
+			))}
+		</main>
+	</div>
 </Layout>

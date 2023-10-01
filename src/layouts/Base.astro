@@ -1,11 +1,12 @@
 ---
-export interface Props {
-	title: string
-}
-
 import Favicon from '../components/Favicon/Favicon.astro'
 import IconSVG from '../assets/layouts/Base/favicon.svg'
 import IconPNG from '../assets/layouts/Base/favicon.png'
+import '@fontsource-variable/lexend'
+
+export interface Props {
+	title: string
+}
 
 const { title } = Astro.props;
 ---
@@ -17,12 +18,12 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
 		<!-- Analytics -->
-		<script defer data-domain="example.com" src="/js/script.js"></script>
+		<script defer data-domain="avior.me" src="/js/script.js"></script>
 
 		<Favicon svg={IconSVG} png={IconPNG} icoPath="/favicon.ico" />
 		<title>{title}</title>
 	</head>
-	<body class="bg-gray-50">
+	<body class="bg-blue-50 dark:bg-slate-950 text-slate-950 dark:text-blue-50">
 		<slot />
 	</body>
 </html>

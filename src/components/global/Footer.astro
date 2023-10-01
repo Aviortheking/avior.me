@@ -1,0 +1,25 @@
+---
+import { Mail, Phone } from 'lucide-astro'
+import { Linkedin, Github, Twitter } from 'simple-icons-astro'
+const year = new Date().getFullYear()
+---
+
+<footer class="w-full flex flex-col bg-white dark:bg-gray-900 mt-32 p-16 gap-6">
+	<!-- <div>
+		<a href="/about"></a>
+	</div> -->
+	<div class="flex flex-row w-full justify-center gap-6 text-gray-500">
+		<a href="https://fr.linkedin.com/in/florian-bouillon" target="_blank noreferrer nofollow"><Linkedin /></a>
+		<a href="tel:+33672292683"><Phone /></a>
+		<a href="mailto:contact@avior.me"><Mail /></a>
+		<a href="https://twitter.com/aviortheking"><Twitter /></a>
+		<a href="https://github.com/aviortheking" target="_blank noreferrer nofollow"><Github /></a>
+	</div>
+	<div>
+		<p class="font-light text-center">
+			© {year} Florian BOUILLON. Le contenu de ce site est licensié sous <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer nofollow noopener">CC BY-SA 4.0</a>.
+			<br />
+			<a href="https://github.com/aviortheking/avior.me">Le code source du site est disponible ici.</a>
+		</p>
+	</div>
+</footer>
