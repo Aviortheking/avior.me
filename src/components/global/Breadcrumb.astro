@@ -12,10 +12,10 @@ interface Props {
 		{Astro.props.items.map((el, index) => (
 			<li property="itemListElement" typeof="ListItem" class="inline-block px-0">
 				{index > 0 && (
-					<span class="text-slate-900 dark:text-slate-100 mx-4">/</span>
+					<span class="text-gray-900 dark:text-gray-100 mx-4">/</span>
 				)}
 				{el.href ? (
-					<a class="text-slate-900 dark:text-slate-100 font-normal" href={el.href} property="item" typeof="WebPage">
+					<a class="text-gray-900 dark:text-gray-100 font-normal" href={el.href} property="item" typeof="WebPage">
 						<span property="name">{el.text}</span>
 					</a>
 				) : (
