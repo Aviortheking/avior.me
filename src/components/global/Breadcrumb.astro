@@ -8,14 +8,14 @@ interface Props {
 ---
 
 <nav>
-	<ol vocab="https://schema.org/" typeof="BreadcrumbList">
+	<ol vocab="https://schema.org/" typeof="BreadcrumbList" class="inline-flex items-center flex-wrap px-0 mb-4">
 		{Astro.props.items.map((el, index) => (
-			<li property="itemListElement" typeof="ListItem">
+			<li property="itemListElement" typeof="ListItem" class="inline-block px-0">
 				{index > 0 && (
 					<span class="text-slate-900 dark:text-slate-100 mx-4">/</span>
 				)}
 				{el.href ? (
-					<a class="text-slate-900 dark:text-slate-100" href={el.href} property="item" typeof="WebPage">
+					<a class="text-slate-900 dark:text-slate-100 font-normal" href={el.href} property="item" typeof="WebPage">
 						<span property="name">{el.text}</span>
 					</a>
 				) : (
@@ -26,15 +26,3 @@ interface Props {
 		))}
 	</ol>
 </nav>
-
-<style>
-	ol {
-		@apply inline-flex items-center flex-wrap px-0 mb-4
-	}
-	li {
-		@apply inline-block px-0
-	}
-	a {
-		@apply font-normal
-	}
-</style>
