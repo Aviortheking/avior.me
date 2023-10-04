@@ -4,5 +4,8 @@
 	},
 	"tailwindCSS.includeLanguages": {
 		"astro": "html"
+	},
+	"files.associations": {
+		"*.mdx": "markdown"
 	}
 }

@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config'
 import tailwind from "@astrojs/tailwind"
-import node from "@astrojs/node"
+import mdx from "@astrojs/mdx"
 
 // const faviconHook = {
 // 	name: 'Favicon',
@@ -15,7 +15,7 @@ import node from "@astrojs/node"
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [tailwind()],
+	integrations: [tailwind(), mdx()],
 	compressHTML: true,
 	build: {
 		assets: 'assets',
@@ -34,11 +34,10 @@ export default defineConfig({
 			}
 		}
 	},
-
 	// Customizable depending on goal
 	output: 'static',
 	// adapter: node({
 	// 	mode: "standalone"
 	// }),
-	site: 'https://avior.me',
- })
+	site: 'https://avior.me'
+})

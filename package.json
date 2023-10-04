@@ -15,7 +15,7 @@
 		"install:test": "playwright install --with-deps"
 	},
 	"dependencies": {
-		"@astrojs/node": "^6",
+		"@astrojs/mdx": "^1.1.0",
 		"@astrojs/tailwind": "^5",
 		"@dzeio/logger": "^3",
 		"@dzeio/object-util": "^1",
