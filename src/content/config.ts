@@ -15,7 +15,8 @@ const projectsCollection = defineCollection({
 		}).optional(),
 		disabled: z.string().optional(),
 		created: z.date().optional(),
-		updated: z.date().optional()
+		updated: z.date().optional(),
+		techs: z.string().array().optional()
 	})
 })
 const blogCollection = defineCollection({

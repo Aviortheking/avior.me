@@ -7,6 +7,13 @@ link:
 image: ./og.png
 created: 2022-09-03
 updated: 2023-07-02
+techs:
+  - NextJS
+  - Typescript
+  - Appwrite
+  - Scrapping
+  - Docker
+  - Stylus
 ---
 
 ![Logo de FI3D](./logo.svg)

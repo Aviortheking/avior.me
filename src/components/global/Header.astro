@@ -1,13 +1,12 @@
 ---
 import Logo from 'assets/logo.svg'
 import LogoDark from 'assets/logo.dark.svg'
-import { Image } from 'astro:assets'
+import Picture from 'components/Picture.astro'
 ---
 
 <header class="bg-white/1 z-10 justify-center sm:justify-normal transition-opacity
 				fixed w-full h-20 flex items-center border-b border-slate-900/10 backdrop-blur-md">
 	<a href="/">
-		<Image src={Logo} alt="Avior.me Logo" class="h-9 dark:hidden" />
-		<Image src={LogoDark} alt="Avior.me Logo" class="h-9 hidden dark:block" />
+		<Picture src={Logo} srcDark={LogoDark} alt="Avior.me Logo" class="h-9" />
 	</a>
 </header>

@@ -6,6 +6,14 @@ link:
 image: ./og.png
 created: 2018-09-10
 updated: 2021-04-29
+techs:
+  - NextJS
+  - Typescript
+  - MongoDB
+  - Firebase
+  - Symphony
+  - Docker
+  - Stylus
 ---
 
 ![Logo de Studiomoto](./logo.svg)

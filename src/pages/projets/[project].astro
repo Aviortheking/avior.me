@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Picture from 'components/Picture.astro'
 import Article from 'layouts/Article.astro'
 
 export const prerender = true
@@ -11,16 +12,18 @@ export async function getStaticPaths() {
 	}))
 }
 // 2. For your template, you can get the entry directly from the prop
-const { entry } = Astro.props;
+const { entry } = Astro.props as Awaited<ReturnType<typeof getStaticPaths>>[0]['props'];
 const { Content } = await entry.render();
 ---
 <Article title={entry.data.title} image={[entry.data.image]} description={entry.data.description} link={entry.data.link} breadcrumb={[{text: 'Accueil', href: '/'}, {text: 'Projets', href: '/projets'}, {text: entry.data.title}]}>
 	<h1>{entry.data.title}</h1>
 	<p class="flex justify-end font-lights my-0">
-		<span>Sortie initial le {entry.data.created.toLocaleDateString('fr')}</span>
+		{entry.data.created && (
+			<span>Sortie initial le {entry.data.created.toLocaleDateString('fr')}</span>
+		)}
 		<!-- <p>Software updated: {entry.data.updated.toLocaleDateString()}</p> -->
 	</p>
 
-	<Content />
+	<Content components={{img: Picture }}/>
 
 </Article>

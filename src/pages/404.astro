@@ -1,0 +1,25 @@
+---
+import Layout from 'layouts/Layout.astro'
+import I404 from 'assets/pages/404/404.svg'
+import I404Light from 'assets/pages/404/404.light.svg'
+import Button from 'components/global/Button.astro'
+import ButtonLink from 'components/global/ButtonLink.astro'
+import Picture from 'components/Picture.astro'
+---
+
+<Layout>
+	<main class="container flex flex-col gap-24 justify-center items-center md:mt-6">
+		<h1 class="text-6xl text-center font-bold">404 La page recherché n'existe pas :(</h1>
+		<Picture src={I404Light} srcDark={I404} alt="404 error image" />
+		<div class="flex gap-6">
+			<ButtonLink href="/">Retour à la page d'accueil</ButtonLink>
+			<Button id="back_button">Retour à la page précédente</Button>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	(document.querySelector('button.back_button') as HTMLButtonElement).addEventListener('click', () => {
+		history.back()
+	})
+</script>
