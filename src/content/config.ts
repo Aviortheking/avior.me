@@ -11,7 +11,8 @@ const projectsCollection = defineCollection({
 		link: z.object({
 			href: z.string(),
 			rel: z.string().optional(),
-			text: z.string().optional()
+			text: z.string().optional(),
+			target: z.string().optional()
 		}).optional(),
 		disabled: z.string().optional(),
 		created: z.date().optional(),

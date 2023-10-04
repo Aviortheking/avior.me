@@ -7,14 +7,14 @@ import Breadcrumb from 'components/global/Breadcrumb.astro'
 export interface Props extends BaseProps {
 	link?: {
 		href: string
-		rel?: string
-		text?: string
-		target?: string
-	}
-	disabled?: string
+		rel?: string | undefined
+		text?: string | undefined
+		target?: string | undefined
+	} | undefined
+	disabled?: string | undefined
 	breadcrumb: Array<{
 		text: string
-		href?: string
+		href?: string | undefined
 	}>
 }
 ---
