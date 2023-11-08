@@ -14,22 +14,20 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Use Node.js 20
-      uses: actions/setup-node@v3
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
       with:
-        node-version: 20
+        registry: git.dzeio.com
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_TOKEN }}
 
-    - name: Install dependencies
-      run: npm ci
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
-    - name: Build
-      run: npm run build
-
-    - name: Check
-      run: npm run check
-
-    - name: Prepare Tests
-      run: npm run install:test
-
-    - name: Test
-      run : npm run test
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: avior/devhub-project:latest
