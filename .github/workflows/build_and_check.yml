@@ -30,4 +30,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: avior/devhub-project:latest
+        tags: avior/avior.me:latest
