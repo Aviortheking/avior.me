@@ -30,4 +30,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: avior/avior.me:latest
+        tags: git.dzeio.com/avior/avior.me:latest
