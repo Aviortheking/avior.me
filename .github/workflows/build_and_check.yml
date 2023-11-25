@@ -2,8 +2,8 @@ name: Build, check & Test
 
 on:
   push:
-    branches:
-    tags:
+    branches: *
+    tags: *
   pull_request:
     branches: 
       - master
