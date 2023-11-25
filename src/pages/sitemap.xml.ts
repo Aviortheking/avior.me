@@ -13,11 +13,11 @@ export const ALL: APIRoute = async () => {
 	sitemap.addEntry('/', {
 		priority: 1
 	})
-	sitemap.addEntry('/projets/', {
+	sitemap.addEntry('/projects/', {
 		priority: 0.5
 	})
 	for (const project of projects) {
-		sitemap.addEntry('/projets/' + project.slug, {
+		sitemap.addEntry('/projects/' + project.slug, {
 			priority: 0.7
 		})
 	}
