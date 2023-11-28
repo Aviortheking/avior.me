@@ -1,4 +1,4 @@
-# This Dockerfile allows you to run Astro in a static container (no server side)
+# This Dockerfile allows you to run Astro in a static container using NGINX (no server side)
 
 #########
 # Build #
