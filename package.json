@@ -15,18 +15,18 @@
 		"install:test": "playwright install --with-deps"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^1.1.0",
+		"@astrojs/mdx": "^3.1.8",
 		"@astrojs/tailwind": "^5",
 		"@dzeio/logger": "^3",
 		"@dzeio/object-util": "^1",
 		"@dzeio/url-manager": "^1",
 		"@fontsource-variable/lexend": "^5.0.12",
 		"@tailwindcss/typography": "^0.5.10",
-		"astro": "^3",
+		"astro": "^4",
 		"astro-seo": "^0.8.0",
 		"easy-sitemap": "^1.2.0",
 		"lucide-astro": "^0",
-		"simple-icons-astro": "^9.16.0",
+		"simple-icons-astro": "^13.14.0",
 		"tailwindcss": "^3"
 	},
 	"devDependencies": {
