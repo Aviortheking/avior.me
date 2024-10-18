@@ -1,0 +1,158 @@
+---
+import Base from 'layouts/Base.astro'
+import Picture from 'components/Picture.astro'
+import Me from 'assets/pages/cv/me.jpg'
+import { objectMap } from '@dzeio/object-util'
+
+const skills = {
+	'Langages': 'Typescript/JavaScript, Web (HTML/CSS), Kotlin, C++',
+	'Frameworks': 'Astro, NextJS, Android (MVVM), PlatformIO',
+	'Softwares': 'Git, VSCode, Zed',
+	'Tertiaire': 'Gestion de projet, Encadrement de collaborateurs'
+} as const
+
+const skillColor: Record<keyof typeof skills, string> = {
+	'Langages': 'amber',
+	'Frameworks': 'sky',
+	'Softwares': 'teal',
+	'Tertiaire': 'gray'
+}
+
+const passions: Array<string> = [
+	'Pokémon',
+	'Tennis',
+	'Programation'
+]
+
+const jobs: Array<{
+	company: string
+	start: string
+	end?: string
+	projects: Array<{
+		name: string
+		client?: string
+		description: string
+		technics?: Array<string>
+}>
+}> = [{
+	company: 'Aptatio',
+	start: '2019-09-30',
+	projects: [{
+		name: 'Ifremer LOOP',
+		client: 'Ifremer',
+		description: 'Développement d’une application de gestion des réponses des appels à données et participations aux groupes internationaux',
+		technics: [
+			'Gestion de projet',
+			'Conception de logiciel',
+			'Développement de logiciel Web (Framework Astro & Typescript)'
+		]
+	}, {
+		name: 'Gwaleen',
+		client: 'Ifremer & Aptatio',
+		description: 'Développement de plusieurs modules logiciel des Ichtyomètre éléctronique Gwaleen',
+		technics: [
+			'Création et maintenance d\'un Logiciel Android de Gestion de donnée provenant d\'Ichtyomètres Connecté (Kotlin)',
+			'Conception et Création d\'un protocol de communication entre 2 appareil Android en bluetooth pour de la donnée Vidéo (Kotlin)',
+			'Gestion et création du code embarqué dans les Ichtyomètres Gwaleen (C++)'
+		]
+	}, {
+		name: 'ImmerCité',
+		client: 'La cité des congrès de Nantes',
+		description: 'Création d\'ImmerCité, un logiciel immersif pour la présentation d\'événements, primé au concours international des Cités des Congrès et lauréat du 1er prix Innovation Award à la conférence annuelle de l\'AIPC au Costa Rica.',
+		technics: [
+			'Conception de logiciel',
+			'Développement de logiciel Web (Framework NextJS & Typescript)',
+			'Création d\'un engine de gestion 2D pour le placement et l\'automatisation des objets dans les salles de la cité',
+			'Gestion de la communication et synchronisation entre plusieurs ordinateurs (WebSocket & ExpressJS)',
+			'Programation de la 3D dans Unity puis Godot (C#, GDScript)'
+		]
+	}, {
+		name: 'Gestion de l\'infrastructure',
+		description: 'Gestion de l\'infrastructure Réseau de l\'entreprise',
+		technics: [
+			'mise en place d\'un SSO (Single sign-on)',
+			'Gestion de la donnée utilisateur/client',
+			'Mise en ligne des logiciels Client',
+			'Maintenance Préventive des serveurs'
+		]
+	}]
+}, {
+	company: 'Auto-Entreprise',
+	start: '2019-04-01',
+	projects: [{
+		name: 'TCGdex',
+		description: 'Développement de TCGdex, une API open source multilingue (14 langues) pour le jeu de cartes Pokémon JCC, offrant des fonctionnalités avancées aux développeurs et amateurs du jeu.',
+		technics: [
+			'Récupération des données depuis une multitude de sources',
+			'Création et maintenance d\'une API avec + de 4 Millions de requettes par mois',
+			'Mise en place d\'outillages pour simplifier l\'usage de l\'API aux développeurs',
+			'Maintenance et gestion d\'une communauté autour du jeux de carte Pokémon'
+		]
+	}]
+}]
+---
+
+<Base>
+	<main class="container py-8">
+		<div class="flex gap-4">
+			<div class="w-1/4 flex flex-col gap-4">
+				<Picture src={Me} innerClass="rounded-xl" />
+				<h1 class="font-bold text-5xl text-center">Florian Bouillon</h1>
+				<div>
+					<p>Compétences :</p>
+					<div class="hidden bg-amber-300 bg-sky-300 bg-teal-300"></div>
+					<ul class="pl-6 list-disc">
+						{objectMap(skills, (it, key) => (
+							<li>{key}: {it.split(',').map((it) => <span class:list={[`bg-${skillColor[key]}-300`, "inline-block px-2 py-1 m-1 text-black rounded-xl"]}>{it}</span>)}</li>
+						))}
+					</ul>
+				</div>
+				<div>
+					<p>Passions :</p>
+					<ul class="pl-2 list-disc">
+						{passions.map((it) => (
+							<li>{it}</li>
+						))}
+					</ul>
+				</div>
+			</div>
+			<div class="w-3/4">
+				<div class="">
+					<h2 class="text-4xl font-bold">Expérience professionnel</h2>
+					{jobs.map((company) => (
+						<div class="mt-6">
+							<div class="flex justify-between items-center">
+								<h2 class="text-2xl font-semibold">{company.company}</h2>
+								<div class="italic">{company.start} - {company.end ?? 'Aujourd\'hui'}</div>
+							</div>
+							<div class="pl-2">
+								{company.projects.map((it, idx) => (
+									<div>
+										{idx > 0 && (
+											<hr class="my-2 border-t-2 border-gray-500" />
+										)}
+										<div class="flex justify-between items-center">
+											<p class="text-xl font-[550]">- {it.name}</p>
+											{it.client && (
+												<p>{it.client}</p>
+											)}
+										</div>
+										<p class="mt-2 pl-4">{it.description}</p>
+										{it.technics && (
+											<div class="pl-4 mt-2">
+												<p>Tâches:</p>
+												<ul class="list-disc pl-6">
+													{it.technics?.map((tech) => <li>{tech}</li>)}
+												</ul>
+											</div>
+										)}
+									</div>
+								))}
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>

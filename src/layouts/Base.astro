@@ -1,6 +1,8 @@
 ---
 import Head, { type Props as HeadProps } from './Head.astro'
 
+import '@fontsource-variable/lexend'
+
 export interface Props extends HeadProps {}
 ---
 
@@ -13,3 +15,9 @@ export interface Props extends HeadProps {}
 		<slot />
 	</body>
 </html>
+
+<style is:global>
+	html {
+		font-weight: 350;
+	}
+</style>

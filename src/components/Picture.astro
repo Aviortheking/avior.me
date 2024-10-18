@@ -13,6 +13,7 @@ export interface Props extends Omit<astroHTML.JSX.ImgHTMLAttributes, 'src'> {
 	srcDark?: ImageMetadata | string
 	width?: number
 	height?: number
+	innerClass?: string
 }
 
 type PictureResult = {
@@ -70,7 +71,7 @@ const props = objectOmit(Astro.props, 'src', 'srcDark', 'class')
 		{res.light.formats.map((it) => (
 			<source srcset={it.img.src} type={`image/${it.format}`} />
 		))}
-		<img src={res.light.src.src} />
+		<img src={res.light.src.src} class={Astro.props.innerClass} />
 	</picture>
 ) || (
 	<img {...props} class:list={[Astro.props.class, {'dark:hidden': res.dark}]} src={res.light.src as string} />
@@ -81,7 +82,7 @@ const props = objectOmit(Astro.props, 'src', 'srcDark', 'class')
 		{res.dark.formats.map((it) => (
 			<source srcset={it.img.src} type={`image/${it.format}`} />
 		))}
-		<img src={res.dark.src.src} />
+		<img src={res.dark.src.src} class={Astro.props.innerClass} />
 	</picture>
 ) || (res.dark && (
 	<img {...props} class:list={[Astro.props.class, 'hidden', 'dark:block']} src={res.dark.src as string} />

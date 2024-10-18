@@ -15,9 +15,7 @@ module.exports = {
 			}
 		},
 		fontFamily: {
-			fontFamily: {
-				sans: ["Lexend Variable", "Lexend", ...defaultTheme.fontFamily.sans],
-			},
+			sans: ["Lexend Variable", "Lexend", ...defaultTheme.fontFamily.sans],
 		},
 		extend: {
 		},
