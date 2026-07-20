@@ -22,7 +22,7 @@
 		"@dzeio/url-manager": "^1",
 		"@fontsource-variable/lexend": "^5.1.1",
 		"@tailwindcss/typography": "^0.5.10",
-		"astro": "^3",
+		"astro": "^7",
 		"astro-seo": "^0.8.0",
 		"easy-sitemap": "^1.2.0",
 		"lucide-astro": "^0",
