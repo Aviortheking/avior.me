@@ -33,7 +33,7 @@
 		"@astrojs/check": "^0.2.0",
 		"@playwright/test": "^1",
 		"@types/node": "^20",
-		"@vitest/coverage-v8": "^0",
+		"@vitest/coverage-v8": "^4",
 		"typescript": "^5.2.2",
 		"vitest": "^0"
 	}
